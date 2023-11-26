@@ -5,4 +5,14 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>LojaVirtual</name>
   <description>Projeto do curso Java e JDBC da Alura	</description>
+  
+  <dependencies>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.33</version>
+	</dependency>
+  </dependencies>
+  
 </project>
