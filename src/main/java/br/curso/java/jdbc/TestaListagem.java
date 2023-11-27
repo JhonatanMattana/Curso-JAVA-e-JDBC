@@ -1,19 +1,19 @@
+package br.curso.java.jdbc;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class TestaListagem {
 
-	private static final String URL_MYSQL = "jdbc:mysql://localhost:3306/loja_virtual?useTimezone=true&serverTimezone=UTC&characterEncoding=UTF-8"; 
-	
 	public static void main(String[] args) throws SQLException {
+		ConnectionFactory connectionFactory = new ConnectionFactory();
 		
-		Connection connection = DriverManager.getConnection(URL_MYSQL, "root", "Jhonatan");
+		Connection connection = connectionFactory.recuperarConexao();
 
 		Statement statement = connection.createStatement();
-		boolean resultado = statement.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
+		
+		statement.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
 		
 		ResultSet resultSet = statement.getResultSet();
 		
