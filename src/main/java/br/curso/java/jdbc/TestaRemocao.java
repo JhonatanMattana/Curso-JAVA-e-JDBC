@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestRemocao {
+public class TestaRemocao {
 
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
