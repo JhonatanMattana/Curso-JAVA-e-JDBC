@@ -13,7 +13,7 @@ public class TestaInsercao {
 		
 		Statement statement = connection.createStatement();
 		statement.execute(""
-				+ "INSERT INTO PRODUTO (nome, descricao) VALUES('Mouse', 'Mouse sem fio')"
+				+ "INSERT INTO PRODUTO (nome, descricao) VALUES ('Mouse', 'Mouse sem fio')"
 				+ "", Statement.RETURN_GENERATED_KEYS);
 		
 		ResultSet generatedKeys = statement.getGeneratedKeys();
