@@ -20,6 +20,8 @@ public class ConnectionFactory {
 		comboPooledDataSource.setUser(USER);
 		comboPooledDataSource.setPassword(PASSWORD);
 		
+		comboPooledDataSource.setMaxPoolSize(10);
+		
 		this.dataSource = comboPooledDataSource;
 	}
 	
