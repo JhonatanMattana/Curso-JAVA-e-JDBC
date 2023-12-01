@@ -1,11 +1,9 @@
 package br.curso.java.jdbc;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import br.curso.java.jdbc.dao.ProdutoDAO;
 import br.curso.java.jdbc.modelo.Produto;
 
 public class TestaInsercaoComProduto {
@@ -15,22 +13,9 @@ public class TestaInsercaoComProduto {
 		Produto comoda = new Produto("Cômoda", "Cômoda Vertical");
 		
 		try(Connection connection = new ConnectionFactory().recuperarConexao()) {
-			String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO) VALUES (?, ?)";
-			
-			try(PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-				pstm.setString(1, comoda.getNome());
-				pstm.setString(2, comoda.getDescricao());
-				
-				pstm.execute();
-				
-				try(ResultSet resultSet = pstm.getGeneratedKeys()) {
-					while (resultSet.next()) {
-						comoda.setId(resultSet.getInt(1));
-					}
- 				}
-			}
+			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+			produtoDAO.salvar(comoda);
 		}
-		System.out.println(comoda.toString());
 	}
 
 }
