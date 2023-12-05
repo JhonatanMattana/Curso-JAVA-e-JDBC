@@ -1,0 +1,21 @@
+CREATE DATABASE loja_virtual
+---------------------------------------------------------------------------------
+CREATE TABLE loja_virtual.PRODUTO (
+	id INT AUTO_INCREMENT, 
+	nome VARCHAR(50) NOT NULL, 
+	descricao VARCHAR(255), 
+	PRIMARY KEY (id)) Engine = InnoDB;
+
+INSERT INTO loja_virtual.PRODUTO (nome, descricao) VALUES ('NOTEBOOK', 'NOTEBOOK SANSUNG');
+
+---------------------------------------------------------------------------------
+CREATE TABLE loja_virtual.CATEGORIA (ID INT AUTO_INCREMENT, NOME VARCHAR(50) NOT NULL, PRIMARY KEY(ID)) Engine = InnoDB;
+---------------------------------------------------------------------------------
+INSERT INTO loja_virtual.CATEGORIA (NOME) VALUES ('ELETRONICOS');
+INSERT INTO loja_virtual.CATEGORIA (NOME) VALUES ('ELETRODOMESTICOS');
+INSERT INTO loja_virtual.CATEGORIA (NOME) VALUES ('MOVEIS');
+---------------------------------------------------------------------------------
+ALTER TABLE loja_virtual.PRODUTO ADD COLUMN CATEGORIA_ID INT;
+ALTER TABLE loja_virtual.PRODUTO ADD FOREIGN KEY (CATEGORIA_ID) REFERENCES CATEGORIA (ID);
+---------------------------------------------------------------------------------
+SHOW PROCESSLIST;
